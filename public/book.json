@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1000",
+        "category": "Academic",
+        "course": "HSC ICT",
+        "price": "200",
+        "thumb": "https://thumbs.dreamstime.com/thumb_865/8656080.jpg"
+    },
+    {
+        "id": "1001",
+        "category": "Academic",
+        "course": "HSC MATH",
+        "price": "300",
+        "thumb": "https://i.pinimg.com/originals/c8/a0/ab/c8a0aba1b7254235aa602eae0754058c.jpg"
+    },
+    {
+        "id": "1003",
+        "category": "Technical",
+        "course": "Cyber Security",
+        "price": "150",
+        "thumb": "https://www.kaspersky.com/content/en-global/images/repository/isc/2017-images/What-is-Cyber-Security.jpg"
+    },
+    {
+        "id": "1004",
+        "category": "Technical",
+        "course": "Data Science with Python",
+        "price": "500",
+        "thumb": "https://prutor.ai/wp-content/uploads/data-science-using-python.png"
+    },
+    {
+        "id": "1005",
+        "category": "Marketing",
+        "course": "Facebook Marketing",
+        "price": "350",
+        "thumb": "https://flynaut.com/wp-content/uploads/2016/03/FacebookFB1.jpg"
+    },
+    {
+        "id": "1006",
+        "category": "Freelancing",
+        "course": "Content Writing",
+        "price": "100",
+        "thumb": "https://www.seoclerk.com/pics/want59462-1oT05c1520405948.jpg"
+    },
+    {
+        "id": "1007",
+        "category": "Technical",
+        "course": "MS Excel",
+        "price": "150",
+        "thumb": "https://img.theweek.in/content/dam/week/news/sci-tech/images/2021/2/16/excel.jpg"
+    },
+    {
+        "id": "1008",
+        "category": "Technical",
+        "course": "MS Powerpoint",
+        "price": "100",
+        "thumb": "https://cyberseniors.org/wp-content/uploads/2021/04/Microsoft-PowerPoint-logo.jpeg"
+    },
+    {
+        "id": "1009",
+        "category": "Technical",
+        "course": "Android Developing",
+        "price": "3000",
+        "thumb": "https://bs-uploads.toptal.io/blackfish-uploads/uploaded_file/file/194722/image-1582811959686-b31494c241bebb769c3001a8d24cdc16.png"
+    },
+    {
+        "id": "10010",
+        "category": "Technical",
+        "course": "Advance Java",
+        "price": "2000",
+        "thumb": "https://programmerspoint.in/images/advanced-java-course.jpg"
+    }
+]

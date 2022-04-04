@@ -22,7 +22,7 @@ const Login = () => {
     const { signInUsingGoogle } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
-    const redirect_url = location.state?.from || '/home';
+    const redirect_url = location.state?.from || '/';
     const handleGoogleLogin = () => {
         signInUsingGoogle()
             .then(result => {
