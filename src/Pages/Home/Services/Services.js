@@ -20,7 +20,7 @@ const Services = () => {
                 <div className="mx-auto d-flex justify-content-center my-2">
                     <h3 style={{ color: 'AppWorkspace' }}>Our best services</h3>
                 </div>
-                <Row xs={1} sm={2} md={3} lg={4} className="g-3">
+                <Row xs={1} sm={2} md={3} lg={4} className="gy-2 mx-auto">
 
                     {
                         services.map(service => <Service key={service.key} service={service}></Service>)

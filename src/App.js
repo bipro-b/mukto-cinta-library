@@ -10,6 +10,9 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import About from "./Pages/More/About/About";
+import Contact from "./Pages/More/Contact/Contact";
+import More from "./Pages/More/More/More";
 
 function App() {
   return (
@@ -17,13 +20,18 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />}>
-              <Route path="home" element={<Home />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="home" element={<Home />} />
+
+            <Route path="/more" element={<More />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+
             <Route element={<PrivateRoute />}>
-              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Route>
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+
           </Routes>
         </BrowserRouter>
       </AuthProvider>
