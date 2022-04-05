@@ -1,121 +1,87 @@
-import React from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { Form } from 'react-bootstrap';
-import Button from '@restart/ui/esm/Button';
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 
-import { useState } from "react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Header from '../../Shared/Header/Header';
-import initializeFirebaseAuthentication from '../Firebase/firebase.init';
 
-initializeFirebaseAuthentication();
-
-const auth = getAuth();
+// import login from '../../../images/login.png'
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLogin, setIsLogin] = useState('');
-    const [error, setError] = useState('');
-
-    const { signInUsingGoogle } = useAuth();
+    const [loginData, setLoginData] = useState({});
+    const { signInUsingGoogle, user, loginUser, isLoading, authError } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
-    const redirect_url = location.state?.from || '/home';
+
+
+
+    // const redirect_url = location.state?.from || '/home';
     const handleGoogleLogin = () => {
-        signInUsingGoogle()
-            .then(result => {
-                navigate.push(redirect_url);
-            })
-    }
+        signInUsingGoogle(location, navigate)
 
-    const toggleLogin = e => {
-        setIsLogin(e.target.checked)
     }
-
-    const handleEmail = e => {
-        setEmail(e.target.value);
+    const handleOnchange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
     }
-    const handlePassword = e => {
-        setPassword(e.target.value);
-    }
-
-    const handleSignUp = e => {
+    const handleLoginSubmit = e => {
+        // alert('Submit successfully')
+        loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
-        console.log(email, password);
-        if (password.length < 6) {
-            setError('Password Must be at least 6 characters long.')
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case');
-            return;
-        }
-
-        isLogin ? processLogin(email, password) : newSignup(email, password);
-
     }
-
-    const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-    }
-    const newSignup = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-    }
-
-
 
     return (
         <>
             <Header />
-            <div className="App w-50 mx-auto">
-                <Form onSubmit={handleSignUp} className="my-5">
-                    <h3>Please {isLogin ? 'Sign In' : 'Sign Up'} </h3>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control onBlur={handleEmail} type="email" placeholder="Enter email" />
-                    </Form.Group>
+            <Container >
+                <Grid container spacing={2} sx={{ marginTop: '50px', margin: 'auto' }}>
+                    <Grid item sm={12} >
+                        <Typography sx={{ border: '5px solid red', width: '50%' }} variant="body1" gutterBottom>
+                            Login
+                            <form onSubmit={handleLoginSubmit}>
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic" label="Your Email"
+                                    name="email"
+                                    onBlur={handleOnchange}
+                                    type="email"
+                                    variant="standard" />
+                                <TextField
+                                    sx={{ width: '75%', m: 1 }}
+                                    id="standard-basic" label="Your Password"
+                                    type="password"
+                                    name="password"
+                                    onBlur={handleOnchange}
+                                    variant="standard" />
+                                <Button
+                                    sx={{ width: '75%', m: 1 }}
+                                    type="submit"
+                                    variant="contained">Login</Button>
+                                <NavLink style={{ textDecoration: 'none' }} to="/register"><Button variant="text">Are you New User? Please Register</Button></NavLink>
+                            </form>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
-                    </Form.Group>
+                        </Typography>
+                        {
+                            isLoading && <CircularProgress />
+                        }
+                        {
+                            user?.email && <Alert severity="success">Login Successfully!!</Alert>
+                        }
+                        {
+                            authError && <Alert severity="error">{authError}</Alert>
+                        }
+                    </Grid>
 
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check onChange={toggleLogin} type="checkbox" label="Already sign up?" />
-                    </Form.Group>
-                    <div className="row mb-3 text-danger">{error}</div>
-
-                    <Button className="btn btn-primary" variant="primary" type="submit">
-                        Sign {isLogin ? 'In' : 'Up'}
-                    </Button>
-                </Form>
+                </Grid>
                 <div>........Or........</div>
                 <h3>Sign in with</h3>
-
-                <button onClick={handleGoogleLogin} className="btn btn-success btn-outer-primary"><img src="https://img.icons8.com/color/96/000000/google-logo.png" alt="" /></button>
-
-            </div>
-
+                <div className='mx-auto'>
+                    <button onClick={handleGoogleLogin} className="btn btn-success btn-outer-primary"><img src="https://img.icons8.com/color/96/000000/google-logo.png" alt="" /></button>
+                </div>
+            </Container>
         </>
     );
 };

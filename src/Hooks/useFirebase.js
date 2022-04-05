@@ -1,59 +1,129 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
-import initializeFirebaseAuthentication from "../Pages/Login/Firebase/firebase.init";
 
+import { useState, useEffect } from 'react';
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
+import initializeFirebaseAuthentication from '../Pages/Login/Firebase/firebase.init';
+
+
+
+// initialize firebase app
 initializeFirebaseAuthentication();
-const useFirebase = () => {
-    const googleProvider = new GoogleAuthProvider();
-    const auth = getAuth();
-    const [user, setUser] = useState({});
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+const useFirebase = () => {
+    const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false)
+    const auth = getAuth();
+
+
+    const googleProvider = new GoogleAuthProvider();
+
 
     const signInUsingGoogle = () => {
-        // signInWithPopup(auth, googleProvider)
-        //     .then((result) => setUser(result.user))
-        //     .catch((error) => setError(error.massage));
         return signInWithPopup(auth, googleProvider)
-            .finally(() => { setLoading(false) });
-    };
-
-
-
-    const logOut = () => {
-        setLoading(true);
-        signOut(auth)
-            .then(() => {
-                setUser({})
-            })
-            .finally(() => setLoading(false))
+            .finally(() => { setIsLoading(false) })
     }
+
+
+
+    const registerUser = (email, password, name, navigate) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser)
+                // Save user to the database
+                saveUser(email, name, 'POST');
+                //send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+
+                }).catch((error) => {
+
+                });
+
+                navigate('/');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+    const loginUser = (email, password, location, navigate) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const destination = location?.state?.from || '/';
+                navigate(destination);
+                //setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+
+    // observer user state
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+
+
             } else {
-                setError("");
+                setUser({})
             }
+            setIsLoading(false);
         });
-    }, [auth]);
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            }
-            else {
-                setUser({});
-            }
-            setLoading(false);
-        });
-        return () => unsubscribe;
+        return () => unsubscribed;
     }, [auth])
 
 
-    return {
-        signInUsingGoogle, logOut, user, loading, error
+    useEffect(() => {
+        fetch(`https://peaceful-ridge-87447.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+    const logout = () => {
+        setIsLoading(true);
+        signOut(auth).then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        })
+            .finally(() => setIsLoading(false));
     }
-};
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('https://peaceful-ridge-87447.herokuapp.com/users', {
+            method: method,
+            headers: {
+
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+    return {
+        signInUsingGoogle,
+        user,
+        admin,
+        isLoading,
+        authError,
+        registerUser,
+        loginUser,
+        logout
+
+
+    }
+}
+
 export default useFirebase;

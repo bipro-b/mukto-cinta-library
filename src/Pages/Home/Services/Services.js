@@ -1,5 +1,6 @@
+import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 import Service from '../Service/Service';
 import './Services.css'
@@ -16,7 +17,7 @@ const Services = () => {
     return (
         <div className='services'>
 
-            <Container className="my-5">
+            <Container className="my-2 col-md-10 ">
                 <div className="mx-auto d-flex justify-content-center my-2">
                     <h3 style={{ color: 'AppWorkspace' }}>Choose your need</h3>
                 </div>

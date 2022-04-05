@@ -8,7 +8,7 @@ const Header = () => {
         fontWeight: "bold",
         color: "blue"
     }
-    const { user, logOut } = useAuth();
+    const { user, logout } = useAuth();
     return (
         <div className="header" >
             <Navbar bg="dark" variant={"dark"} expand="lg">
@@ -35,8 +35,8 @@ const Header = () => {
                         {user.email && <span style={{ color: 'white' }}>  {user.displayName}  </span>}
                         {
                             user.email ?
-                                <button onClick={logOut}>log Out</button> :
-                                <NavLink to="/login">Log in</NavLink>
+                                <button onClick={logout}>log Out</button> :
+                                <NavLink to="/login">Login</NavLink>
                         }
                     </Navbar.Collapse>
                 </Container>

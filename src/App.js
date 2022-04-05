@@ -10,6 +10,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import Register from "./Pages/Login/Register/Register";
 import About from "./Pages/More/About/About";
 import Contact from "./Pages/More/Contact/Contact";
 import More from "./Pages/More/More/More";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
           </Routes>
         </BrowserRouter>
