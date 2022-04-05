@@ -1,4 +1,4 @@
-.rotate {
+--rotate {
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;

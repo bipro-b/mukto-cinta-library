@@ -17,7 +17,7 @@ const Banner = () => {
         <Container>
             <div className="banner m-5">
                 <div className="row">
-                    <div className="col-md-6 first-part">
+                    <div className="col-md-6 first-part animate__zoomIn">
                         <h2>Welcome to</h2>
                         <h2> <span className="text-info">Mukto-Cinta Library</span> reading point</h2>
                         <h4>Come  here to learn and go to serve.</h4>

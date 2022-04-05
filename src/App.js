@@ -13,6 +13,7 @@ import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import About from "./Pages/More/About/About";
 import Contact from "./Pages/More/Contact/Contact";
 import More from "./Pages/More/More/More";
+import Take from "./Pages/More/Take/Take";
 
 function App() {
   return (
@@ -26,10 +27,9 @@ function App() {
             <Route path="/more" element={<More />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/book/:bookId" element={<PrivateRoute><Take></Take></PrivateRoute>} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
-            <Route element={<PrivateRoute />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Route>
             <Route path="/login" element={<Login />} />
 
           </Routes>
