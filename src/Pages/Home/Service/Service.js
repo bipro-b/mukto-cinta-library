@@ -20,8 +20,6 @@ const Service = (props) => {
                         <Link to={`/book/${id}`}> <button style={{ alignItems: 'center', marginLeft: "40px" }} className="btn btn-primary ms-40px">Take</button></Link>
                     </Card.Body>
 
-
-
                 </Card>
 
 

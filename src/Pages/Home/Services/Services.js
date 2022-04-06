@@ -13,6 +13,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])
+
     // object is passing to service component
     return (
         <div className='services'>

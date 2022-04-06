@@ -54,7 +54,7 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <Box sx={{ textAlign: 'left' }}>
-                <Link style={{ textDecoration: 'none' }} to="/cars"> <Button color="inherit">All Cars</Button></Link> <br />
+                <Link style={{ textDecoration: 'none' }} to="/cars"> <Button color="inherit">Courses</Button></Link> <br />
 
 
                 {admin || <Box>

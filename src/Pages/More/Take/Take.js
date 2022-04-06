@@ -1,73 +1,82 @@
+
 import { Grid, Typography } from '@mui/material';
+// import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
+// import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
+import './Take.css'
+// import './Shipping.css'
 
 const Take = () => {
+    // const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
-    let { serviceId } = useParams();
+    let { courseId } = useParams();
     const [details, setDetails] = useState([]);
-    const [BookDetails, setBookDetails] = useState({});
+    const [courseDetails, setCourseDetails] = useState({});
+
     useEffect(() => {
         fetch('/book.json')
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
 
-    // console.log(details);
-    // const b = details.filter(sv => sv.id === serviceId);
-    // console.log(b[0]);
-    // const found = details.filter(serv => serv.id === serviceId);
     useEffect(() => {
-        const foundBook = details.find(
-            serv => serv.id === serviceId
+        const chooseCourse = details.find(
+            serv => serv._id === courseId
         );
-        setBookDetails(foundBook);
-    }, [details, serviceId])
-    console.log(BookDetails);
+        setCourseDetails(chooseCourse);
+    }, [details, courseId])
+
+
+    // const onSubmit = data => {
+
+    //     axios.post('https://peaceful-ridge-87447.herokuapp.com/orders', data)
+    //         .then(res => {
+    //             if (res.data.insertedId) {
+    //                 alert('Added successfully');
+    //                 reset();
+    //             }
+    //         })
+    // }
     return (
         <>
-            <Header></Header>
-            <div className="mx-auto">
+            <Header />
 
-                <Grid sx={{ alignItems: 'center' }}>
-                    <Typography>
-                        <img src={user.photoURL} alt="" />
-                        <h2 style={{ color: 'white' }}>Hey "{user?.displayName}" Welcome</h2>
-                    </Typography>
-                    <Typography sx={{ mx: 'auto' }}>
-                        <img style={{ width: '50%' }} src={BookDetails?.thumb} alt="" />
+            <Grid className='take' sx={{ alignItems: 'center' }}>
+                <Typography>
+                    <img src={user.photoURL} alt="" />
+                    <h2>Hey "{user?.displayName}" Welcome</h2>
+                </Typography>
+                <Typography sx={{ mx: 'auto', width: '300px', height: '300px' }}>
+                    <img src={courseDetails?.thumb} alt="" />
 
-                    </Typography>
-                    <Typography style={{ margin: '0 50px 0 50px', alignItems: 'center' }}>
-                        Name: {BookDetails?.course} <br />
-                        details: {BookDetails?.description}
-                    </Typography>
-                </Grid>
-                <Container>
-                    <Col className="ms-5">
-                        <Card className="card h-100 w-50">
-                            <Card.Img style={{ height: '250px' }} variant="top" src={BookDetails?.thumb} />
-                            <Card.Body>
-                                <Card.Title>{BookDetails?.category}
-                                </Card.Title>
-                                <p> {BookDetails?.course}</p>
-                                <p> Price: {BookDetails?.price} $</p>
-                                <Link to="/enroll"> <button style={{ alignItems: 'center', marginLeft: "40px" }} className="btn btn-primary ms-40px">Enroll Now</button></Link>
-                            </Card.Body>
+                </Typography>
+                <Typography style={{ alignItems: 'center' }}>
+                    Category: {courseDetails?.category} <br />
+                    details: {courseDetails?.description}
+                </Typography>
+            </Grid>
+
+            {/*    <div className="add-car">
+                <h3>Fill the purchase form</h3>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input defaultValue={carDetails?.name} {...register("name", { required: true })} />
+                    <input defaultValue={carDetails?.description} {...register("description", { required: true })} />
+                    <input defaultValue={user?.displayName} {...register("displayName", { required: true, maxLength: 20 })} />
+                    <input defaultValue={user?.email} {...register("email", { required: true, maxLength: 50 })} />
 
 
+                    <input type="address" {...register("address")} placeholder="address" />
+                    <input type="address" {...register("city")} placeholder="city" />
+                    <input type="number" {...register("phone")} placeholder="your phone number" />
+                    <input type="submit" />
+                </form>
 
-                        </Card>
-
-
-                    </Col>
-                </Container>
-            </div>
+            </div> */}
             <Footer></Footer>
         </>
     );

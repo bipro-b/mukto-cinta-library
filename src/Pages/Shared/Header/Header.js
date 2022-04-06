@@ -11,7 +11,7 @@ const Header = () => {
     const { user, logout } = useAuth();
     return (
         <div className="header" >
-            <Navbar bg="dark" variant={"dark"} expand="lg">
+            <Navbar bg="blue" variant={"dark"} expand="lg">
                 <Container>
                     <Navbar.Brand href="home">Library</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />

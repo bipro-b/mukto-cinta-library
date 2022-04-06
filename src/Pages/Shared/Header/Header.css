@@ -9,7 +9,8 @@
 }
 
 .header nav {
-    background-color: black;
+    /* background-color: black; */
+    background-color: #1976D2;
     line-height: 40px;
 }
 
@@ -27,6 +28,6 @@
     padding-left: 3px;
     padding-right: 3px;
     color: rgb(32, 32, 30);
-    background-color: blue;
+    /* background-color: blue; */
 
 }
