@@ -19,7 +19,7 @@ const Services = () => {
 
             <Container className="my-2 col-md-10 ">
                 <div className="mx-auto d-flex justify-content-center my-2">
-                    <h3 style={{ color: 'AppWorkspace' }}>Choose your need</h3>
+                    <h3 style={{ color: 'AppWorkspace' }}><p className='animate'>The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice</p></h3>
                 </div>
                 <Row xs={1} sm={2} md={2} lg={3} className="gy-2 mx-auto">
 

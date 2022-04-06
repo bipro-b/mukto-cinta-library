@@ -28,6 +28,13 @@
         "thumb": "https://programmerspoint.in/images/advanced-java-course.jpg"
     },
     {
+        "id": "1009",
+        "category": "Technical",
+        "course": "Android Developing",
+        "price": "3000",
+        "thumb": "https://bs-uploads.toptal.io/blackfish-uploads/uploaded_file/file/194722/image-1582811959686-b31494c241bebb769c3001a8d24cdc16.png"
+    },
+    {
         "id": "1005",
         "category": "Marketing",
         "course": "Facebook Marketing",

@@ -10,15 +10,14 @@
 }
 
 
-service {
-    min-height: 100vh;
-    background: #212534;
-    /* display: flex;
-    align-items: center;
-    flex-direction: column; */
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
+.service {
+    transform: translate3d(1px, 0%, 3em);
+    animation-duration: 3s;
+    animation: slidein;
+}
+
+.service::before {
+    transform: matrix3d(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 }
 
 
@@ -46,8 +45,8 @@ service {
 
 .snap:hover:before,
 .snap:hover:after {
-    animation: none;
-    opacity: 0;
+    animation: slidein;
+    opacity: .7;
 }
 
 

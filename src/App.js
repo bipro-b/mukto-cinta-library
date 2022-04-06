@@ -16,7 +16,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 
 import AuthProvider from "./contexts/Authprovider/AuthProvider";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
@@ -25,6 +25,7 @@ import About from "./Pages/More/About/About";
 import Contact from "./Pages/More/Contact/Contact";
 import More from "./Pages/More/More/More";
 import Take from "./Pages/More/Take/Take";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
