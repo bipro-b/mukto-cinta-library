@@ -1,9 +1,10 @@
 import React from 'react';
+import MyEnroll from '../MyEnroll/MyEnroll';
 
 const Show = () => {
     return (
-        <div>
-            <h2>Show</h2>
+        <div className=''>
+            <MyEnroll />
         </div>
     );
 };

@@ -1,0 +1,18 @@
+.edit {
+
+    background-image: linear-gradient(rgb(0, 51, 128), cyan);
+
+    display: flex;
+    /* flex-direction: row; */
+
+    /* justify-content: center; */
+    /* flex-flow: row wrap; */
+    align-items: center;
+    align-content: space-around;
+    align-content: flex-end;
+
+}
+
+.edit:hover {
+    transform: translate3d(1px, 10%, 1em)
+}

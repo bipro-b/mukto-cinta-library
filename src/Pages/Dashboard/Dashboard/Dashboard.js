@@ -33,19 +33,6 @@ import ManageCourses from '../ManageCourses/ManageCourses';
 import ManageEnroll from '../ManageEnroll/ManageEnroll';
 import Show from '../Show/Show';
 
-/* 
-
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-
-import AdminRoute from '../../Login/AdminRoute/AdminRoute';
-import AddProduct from '../AddProduct/AddProduct';
-import ManageProducts from '../ManageProducts/ManageProducts';
-import ManageOrders from '../ManageOrders/ManageOrders';
-import MyOrder from '../MyOrder/MyOrder';
-import CustomerReview from '../CustomerReview/CustomerReview';
-import Pay from '../Pay/Pay';
-import CarShow from '../CarShow/CarShow';
- */
 
 
 const drawerWidth = 200;
@@ -64,24 +51,24 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link style={{ textDecoration: 'none' }} to="dashboard"> <Button color="inherit">Dashboard</Button></Link> <br />
+            <Link style={{ textDecoration: 'none' }} to="/dashboard"> <Button color="inherit">Dashboard</Button></Link> <br />
             <Box sx={{ textAlign: 'left' }}>
-                <Link style={{ textDecoration: 'none' }} to="/"> <Button color="inherit">Courses</Button></Link> <br />
+                <Link style={{ textDecoration: 'none' }} to="/moreservices"> <Button color="inherit">Courses</Button></Link> <br />
 
 
                 {admin || <Box>
                     <Link style={{ textDecoration: 'none' }} to={`/dashboard/myEnroll`}> <Button color="inherit">My Enroll</Button></Link><br />
-                    <NavLink style={{ textDecoration: 'none' }} to="studentreview"> <Button color="inherit">Review</Button></NavLink><br />
-                    <Link style={{ textDecoration: 'none' }} to={`/dashboard/pay`}> <Button color="inherit">Pay Now</Button></Link><br />
+                    {/*  <NavLink style={{ textDecoration: 'none' }} to="studentreview"> <Button color="inherit">Review</Button></NavLink><br /> */}
+                    {/*  <Link style={{ textDecoration: 'none' }} to={`/dashboard/pay`}> <Button color="inherit">Pay Now</Button></Link><br />
                     <br />
-                    <Button onClick={logout} color="inherit">Logout</Button> <br />
+                    <Button onClick={logout} color="inherit">Logout</Button> <br /> */}
                 </Box>
 
                 }
             </Box>
 
-            {admin && <Box sx={{ textAlign: 'left' }}>
-                <Link style={{ textDecoration: 'none' }} to="makeAdmin"> <Button color="inherit">Make Admin</Button></Link><br />
+            {admin || <Box sx={{ textAlign: 'left' }}>
+                {/* <Link style={{ textDecoration: 'none' }} to="makeAdmin"> <Button color="inherit">Make Admin</Button></Link><br /> */}
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/manageEnroll`}> <Button color="inherit">Manage Enroll</Button></Link><br />
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/managecourses`}> <Button color="inherit">Manage Courses</Button></Link><br />
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/addcourse`}> <Button color="inherit">Add Course</Button></Link> <br />
