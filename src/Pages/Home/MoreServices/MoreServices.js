@@ -8,7 +8,7 @@ import MoreService from '../MoreService/MoreService';
 const MoreServices = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://fierce-escarpment-93712.herokuapp.com/courses')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])

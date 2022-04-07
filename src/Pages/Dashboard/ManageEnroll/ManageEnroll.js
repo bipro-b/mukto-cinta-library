@@ -7,7 +7,7 @@ const ManageEnroll = () => {
 
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/enroll')
+        fetch('https://fierce-escarpment-93712.herokuapp.com/enroll')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [])
@@ -16,7 +16,7 @@ const ManageEnroll = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/enroll/${id}`;
+            const url = `https://fierce-escarpment-93712.herokuapp.com/enroll/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

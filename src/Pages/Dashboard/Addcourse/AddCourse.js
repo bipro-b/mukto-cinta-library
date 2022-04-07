@@ -8,7 +8,7 @@ const AddCourse = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/courses', data)
+        axios.post('https://fierce-escarpment-93712.herokuapp.com/courses', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfullt');
