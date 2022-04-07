@@ -9,7 +9,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     // fake data is loading from json 
     useEffect(() => {
-        fetch('/book.json')
+        fetch('http://localhost:5000/courses')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])
@@ -25,9 +25,18 @@ const Services = () => {
                 <Row xs={1} sm={2} md={2} lg={3} className="gy-2 mx-auto">
 
                     {
-                        services.map(service => <Service key={service.key} service={service}></Service>)
-                    }
+                        services.map((service, index) => {
 
+                            if (index >= 6) return null;
+                            return (
+
+                                <Service key={service.key} service={service}></Service>
+
+                            )
+
+                        })
+
+                    }
                 </Row>
             </Container>
 
