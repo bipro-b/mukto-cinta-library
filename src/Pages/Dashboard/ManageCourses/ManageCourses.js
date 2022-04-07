@@ -34,7 +34,7 @@ const ManageCourses = () => {
         <>
 
             <div>
-                <h3>Manage all cars</h3>
+                <h3 style={{ color: 'white' }}>Manage all cars</h3>
                 {
                     cars.map(car => <div className='edit row' key={car._id}>
 

@@ -17,7 +17,7 @@ const Take = () => {
     const [bookDetails, setBookDetails] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://fierce-escarpment-93712.herokuapp.com/courses')
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
@@ -32,7 +32,7 @@ const Take = () => {
 
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/enroll', data)
+        axios.post('https://fierce-escarpment-93712.herokuapp.com/enroll', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully');
@@ -43,24 +43,24 @@ const Take = () => {
     return (
         <>
             <Header />
-            <Grid sx={{ alignItems: 'center' }}>
+            <Grid sx={{ alignItems: 'center', marginBottom: '20px' }}>
                 <Typography>
                     <img src={user.photoURL} alt="" />
-                    <h2>Hey "{user?.displayName}" Welcome</h2>
+                    <h2 style={{ color: 'white' }}>Hey "{user?.displayName}" Welcome</h2>
                 </Typography>
                 <Typography sx={{ mx: 'auto' }}>
                     <img style={{ width: '50%' }} src={bookDetails?.thumb} alt="" />
 
                 </Typography>
-                <Typography style={{ margin: '0 50px 0 50px', alignItems: 'center' }}>
-                    Name: {bookDetails?.category} <br />
-                    Car details: {bookDetails?.description}
+                <Typography style={{ margin: '0 50px 0 50px', alignItems: 'center', color: 'white', fontSize: '30px' }}>
+                    {bookDetails?.course} <br />
+
                 </Typography>
             </Grid>
 
             <div className="take">
-                <h3>Fill the purchase form</h3>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <h3 style={{ color: 'white' }}>Fill the purchase form</h3>
+                <form onSubmit={handleSubmit(onSubmit)} className='point'>
                     <input defaultValue={bookDetails?.course} {...register("name", { required: true })} />
                     <input defaultValue={bookDetails?.category} {...register("description", { required: true })} />
                     <input defaultValue={user?.displayName} {...register("displayName", { required: true, maxLength: 20 })} />

@@ -9,17 +9,17 @@ import Header from '../../Shared/Header/Header';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { signInUsingGoogle, user, loginUser, isLoading, authError } = useAuth();
+    const { user, loginUser, isLoading, authError } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
 
 
     // const redirect_url = location.state?.from || '/home';
-    const handleGoogleLogin = () => {
-        signInUsingGoogle(location, navigate)
-
-    }
+    /*  const handleGoogleLogin = () => {
+         signInUsingGoogle(location, navigate)
+ 
+     } */
     const handleOnchange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -39,7 +39,7 @@ const Login = () => {
             <Container >
                 <Grid container spacing={2} sx={{ marginTop: '50px', margin: 'auto' }}>
                     <Grid item sm={12} >
-                        <Typography sx={{ border: '5px solid red', width: '50%' }} variant="body1" gutterBottom>
+                        <Typography sx={{ width: '75%', color: 'white' }} variant="body1" gutterBottom>
                             Login
                             <form onSubmit={handleLoginSubmit}>
                                 <TextField
@@ -76,11 +76,11 @@ const Login = () => {
                     </Grid>
 
                 </Grid>
-                <div>........Or........</div>
+                {/*  <div>........Or........</div>
                 <h3>Sign in with</h3>
                 <div className='mx-auto'>
                     <button onClick={handleGoogleLogin} className="btn btn-success btn-outer-primary"><img src="https://img.icons8.com/color/96/000000/google-logo.png" alt="" /></button>
-                </div>
+                </div> */}
             </Container>
         </>
     );

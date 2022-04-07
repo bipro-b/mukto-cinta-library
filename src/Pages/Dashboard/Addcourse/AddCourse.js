@@ -20,13 +20,13 @@ const AddCourse = () => {
         <>
 
             <div className="add-car">
-                <h3>Add new Course</h3>
+                <h3 style={{ color: 'white' }}>Add new Course</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input {...register("course", { required: true, maxLength: 20 })} placeholder="Course name" />
 
                     <textarea {...register("category")} placeholder="Category" />
                     <input type="number" {...register("price")} placeholder="price" />
-                    <input {...register('img')} placeholder="upload image" />
+                    <input {...register('thumb')} placeholder="upload image" />
                     <input type="submit" />
                 </form>
 

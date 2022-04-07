@@ -35,7 +35,7 @@ const MyEnroll = () => {
         <>
 
             <div>
-                <h3 className='inherit'>My Enrollment</h3>
+                <h3 style={{ color: 'white' }}>My Enrollment</h3>
                 {
                     orders.map(order => <div key={order._id}>
                         <Grid className='enroll' lg={10} sx={{ display: 'flex', width: '90%', }}>

@@ -37,10 +37,10 @@ const ManageEnroll = () => {
         <>
 
             <div>
-                <h3>Manage all orders</h3>
+                <h3 style={{ color: 'white' }}>Manage all enrolls</h3>
                 {
                     orders.map(order => <div key={order._id}>
-                        <Grid className='manage' lg={10} sx={{ display: 'flex', width: '100%', border: '2px solid black' }}>
+                        <Grid className='manage' lg={10} sx={{ display: 'flex', width: '100%' }}>
                             <Grid sm={12} md={6} className='description' sx={{ border: '1px solid green', margin: '10px', backgroundColor: 'cyan' }}>
                                 Ordered By: {order?.displayName} <br />
                                 {order.name} <br />

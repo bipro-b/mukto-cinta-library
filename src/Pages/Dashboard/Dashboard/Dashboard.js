@@ -33,7 +33,7 @@ import ManageCourses from '../ManageCourses/ManageCourses';
 import ManageEnroll from '../ManageEnroll/ManageEnroll';
 import Show from '../Show/Show';
 
-
+import './Dashboard.css'
 
 const drawerWidth = 200;
 
@@ -48,7 +48,7 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
+        <div className='door'>
             <Toolbar />
             <Divider />
             <Link style={{ textDecoration: 'none' }} to="/dashboard"> <Button color="inherit">Dashboard</Button></Link> <br />
@@ -72,7 +72,7 @@ function Dashboard(props) {
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/manageEnroll`}> <Button color="inherit">Manage Enroll</Button></Link><br />
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/managecourses`}> <Button color="inherit">Manage Courses</Button></Link><br />
                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/addcourse`}> <Button color="inherit">Add Course</Button></Link> <br />
-                <Button onClick={logout} color="inherit">Logout</Button>
+                <Button onClick={logout} sx={{ color: 'white' }}>Logout</Button>
             </Box>}
 
 
@@ -124,6 +124,7 @@ function Dashboard(props) {
                         keepMounted: true, // Better open performance on mobile.
                     }}
                     sx={{
+
                         display: { xs: 'block', sm: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}

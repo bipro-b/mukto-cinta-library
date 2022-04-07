@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div>
             <Header />
-            <h2>About will be</h2>
+            <h2 style={{ color: 'white' }}>Our Staff</h2>
             <Footer />
         </div>
     );

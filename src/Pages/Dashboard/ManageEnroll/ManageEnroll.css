@@ -1,6 +1,6 @@
 .manage {
     background-image: linear-gradient(green, cyan);
-    border-radius: 7%;
+
 
 }
 
@@ -9,7 +9,7 @@
 }
 
 .description {
-    background-image: linear-gradient(rgba(73, 73, 111, 0.436), rgba(255, 255, 0, 0.49));
+    background-image: linear-gradient(rgba(73, 73, 111, 0.436), rgba(62, 62, 45, 0.49));
     padding: 10px;
     border-left: 50%;
     /* border-top-left-radius: 50%;

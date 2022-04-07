@@ -15,7 +15,7 @@ const MoreServices = () => {
     return (
         <div className="">
             <Header />
-            <h3>Our Services</h3>
+            <h3 style={{ color: 'white' }}>Pick a course</h3>
             <Container>
                 <Row sm={1} md={2} lg={3} className="g-3">
 
