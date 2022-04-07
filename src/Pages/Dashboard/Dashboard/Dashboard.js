@@ -17,10 +17,21 @@ import {
     Link,
 
 
-    NavLink
+    NavLink,
+    Route,
+    Routes
 } from "react-router-dom";
 import { Button } from '@mui/material';
 import useAuth from '../../../Hooks/useAuth';
+import StudentReview from '../StudentReview/StudentReview';
+import Pay from '../Pay/Pay';
+import MyEnroll from '../MyEnroll/MyEnroll';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddCourse from '../Addcourse/AddCourse';
+import ManageCourses from '../ManageCourses/ManageCourses';
+import ManageEnroll from '../ManageEnroll/ManageEnroll';
+import Show from '../Show/Show';
 
 /* 
 
@@ -53,14 +64,16 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
+            <Link style={{ textDecoration: 'none' }} to="dashboard"> <Button color="inherit">Dashboard</Button></Link> <br />
             <Box sx={{ textAlign: 'left' }}>
-                <Link style={{ textDecoration: 'none' }} to="/cars"> <Button color="inherit">Courses</Button></Link> <br />
+                <Link style={{ textDecoration: 'none' }} to="/"> <Button color="inherit">Courses</Button></Link> <br />
 
 
                 {admin || <Box>
-                    <Link style={{ textDecoration: 'none' }} to={`/dashboard/myOrder`}> <Button color="inherit">My Order</Button></Link><br />
-                    <Link style={{ textDecoration: 'none' }} to={`/dashboard/review`}> <Button color="inherit">Review</Button></Link><br />
+                    <Link style={{ textDecoration: 'none' }} to={`/dashboard/myEnroll`}> <Button color="inherit">My Enroll</Button></Link><br />
+                    <NavLink style={{ textDecoration: 'none' }} to="studentreview"> <Button color="inherit">Review</Button></NavLink><br />
                     <Link style={{ textDecoration: 'none' }} to={`/dashboard/pay`}> <Button color="inherit">Pay Now</Button></Link><br />
+                    <br />
                     <Button onClick={logout} color="inherit">Logout</Button> <br />
                 </Box>
 
@@ -68,13 +81,12 @@ function Dashboard(props) {
             </Box>
 
             {admin && <Box sx={{ textAlign: 'left' }}>
-                <Link style={{ textDecoration: 'none' }} to={`/dashboard/makeAdmin`}> <Button color="inherit">Make Admin</Button></Link><br />
-                <Link style={{ textDecoration: 'none' }} to={`/dashboard/manageOrders`}> <Button color="inherit">Manage Orders</Button></Link><br />
-                <Link style={{ textDecoration: 'none' }} to={`/dashboard/manageProducts`}> <Button color="inherit">Manage Courses</Button></Link><br />
-                <Link style={{ textDecoration: 'none' }} to={`/dashboard/addProduct`}> <Button color="inherit">Add Course</Button></Link> <br />
+                <Link style={{ textDecoration: 'none' }} to="makeAdmin"> <Button color="inherit">Make Admin</Button></Link><br />
+                <Link style={{ textDecoration: 'none' }} to={`/dashboard/manageEnroll`}> <Button color="inherit">Manage Enroll</Button></Link><br />
+                <Link style={{ textDecoration: 'none' }} to={`/dashboard/managecourses`}> <Button color="inherit">Manage Courses</Button></Link><br />
+                <Link style={{ textDecoration: 'none' }} to={`/dashboard/addcourse`}> <Button color="inherit">Add Course</Button></Link> <br />
                 <Button onClick={logout} color="inherit">Logout</Button>
             </Box>}
-
 
 
         </div>
@@ -148,34 +160,26 @@ function Dashboard(props) {
             >
                 <Toolbar />
 
-                {/*  <Switch>
+                <Routes>
 
-                    <Route path={`/dashboard/review`}>
-                        <CustomerReview></CustomerReview>
-                    </Route>
-                    <Route path={`/dashboard/pay`}>
-                        <Pay></Pay>
-                    </Route>
-                    <Route path={`/dashboard/myOrder`}>
-                        <MyOrder></MyOrder>
-                    </Route>
-                    <AdminRoute path={`/dashboard/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`/dashboard/addProduct`}>
-                        <AddProduct></AddProduct>
-                    </AdminRoute>
+                    <Route path="studentreview" element={<StudentReview />}>
 
-                    <AdminRoute path={`/dashboard/manageProducts`}>
-                        <ManageProducts></ManageProducts>
-                    </AdminRoute>
-                    <AdminRoute path={`/dashboard/manageOrders`}>
-                        <ManageOrders></ManageOrders>
-                    </AdminRoute>
-                    <Route >
-                        <CarShow></CarShow>
                     </Route>
-                </Switch> */}
+                    <Route path="pay" element={<Pay />} />
+
+
+                    <Route path="myEnroll" element={<MyEnroll />} />
+
+
+                    <Route path="addcourse" element={<AddCourse />} />
+                    <Route path="makeAdmin" element={<AdminRoute><MakeAdmin /></AdminRoute>} />
+
+                    <Route path="managecourses" element={<ManageCourses />} />
+
+                    <Route path="manageEnroll" element={<ManageEnroll />} />
+                    <Route path="/" element={<Show />} />
+
+                </Routes>
 
             </Box>
         </Box>

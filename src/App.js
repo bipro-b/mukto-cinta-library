@@ -21,7 +21,6 @@ import More from "./Pages/More/More/More";
 import Take from "./Pages/More/Take/Take";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 
-
 function App() {
 
 
@@ -38,7 +37,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/book/:bookId" element={<PrivateRoute><Take></Take></PrivateRoute>} />
-            <Route path="/dashboard" element={<Dashboard />} />
+
+            <Route path="dashboard/*" element={<Dashboard />} />
+
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

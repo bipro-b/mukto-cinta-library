@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Service.css'
 
 const Service = (props) => {
-    const { course, category, thumb, id } = props.service;
+    const { course, category, thumb, _id } = props.service;
     // Showing to UI service components 
     return (
         <Container className="service  ">
@@ -17,7 +17,7 @@ const Service = (props) => {
                         </Card.Title>
                         <p >Category: {category}</p>
                         {/* <p>Price:{price} ৳</p> */}
-                        <Link to={`/book/${id}`}> <button style={{ alignItems: 'center', marginLeft: "40px" }} className="btn btn-primary ms-40px">Take</button></Link>
+                        <Link to={`/book/${_id}`}> <button style={{ alignItems: 'center', marginLeft: "40px" }} className="btn btn-primary ms-40px">Take</button></Link>
                     </Card.Body>
 
                 </Card>
