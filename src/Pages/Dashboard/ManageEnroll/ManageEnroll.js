@@ -38,8 +38,41 @@ const ManageEnroll = () => {
 
             <div>
                 <h3 style={{ color: 'white' }}>Manage all enrolls</h3>
+                <div className='title'>
+                    <div>
+                        Name
+                    </div>
+                    <div>
+                        Course
+                    </div>
+                    <div>
+                        Cancel
+                    </div>
+                    <div>
+                        status
+                    </div>
+
+                </div>
+
                 {
                     orders.map(order => <div key={order._id}>
+                        <div className='allenr my-2'>
+                            <div>
+                                {order?.displayName}
+                            </div>
+                            <div>
+                                {order.name}
+                            </div>
+                            <div>
+                                <Button onClick={() => handleDelete(order._id)} variant="text">Delete</Button>
+                            </div>
+                            <div>
+                                Paid
+                            </div>
+
+                        </div>
+
+                        {/*  
                         <Grid className='manage' lg={10} sx={{ display: 'flex', width: '100%' }}>
                             <Grid sm={12} md={6} className='description' sx={{ border: '1px solid green', margin: '10px', backgroundColor: 'cyan' }}>
                                 Ordered By: {order?.displayName} <br />
@@ -49,7 +82,7 @@ const ManageEnroll = () => {
                             <Grid className='mx-auto my-5' sm={12} md={6} sx={{ position: 'end' }}>
                                 <Button onClick={() => handleDelete(order._id)} variant="contained">Delete</Button>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
 
                     </div>)
                 }

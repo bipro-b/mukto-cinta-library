@@ -1,4 +1,4 @@
-import { Button, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import './MyEnroll.css'
@@ -36,18 +36,44 @@ const MyEnroll = () => {
 
             <div>
                 <h3 style={{ color: 'white' }}>My Enrollment</h3>
+                <div className='enrtitle'>
+                    <div>
+                        My name
+                    </div>
+                    <div>
+                        Cancel
+                    </div>
+                    <div>
+                        Status
+                    </div>
+
+                </div>
                 {
                     orders.map(order => <div key={order._id}>
-                        <Grid className='enroll' lg={10} sx={{ display: 'flex', width: '90%', }}>
-                            <Grid sm={12} md={6} className='description' sx={{ margin: '10px', backgroundColor: 'cyan' }}>
-                                <br />
-                                {order.name} <br />
-                                {order.description}
+
+                        <div className='enr my-2'>
+                            <div>
+                                {order.name}
+                            </div>
+                            <div>
+                                <Button onClick={() => handleDelete(order._id)} variant="text">Delete</Button>
+                            </div>
+                            <div>
+                                Inprogress
+                            </div>
+
+                        </div>
+
+                        {/*  <Grid className='enroll' lg={10} >
+                            <Grid >
+
+                                {order.name}
+
                             </Grid>
-                            <Grid className='mx-auto my-5' sm={12} md={6} >
-                                <Button onClick={() => handleDelete(order._id)} variant="contained">Delete</Button>
+                            <Grid  >
+                                <Button onClick={() => handleDelete(order._id)} variant="text">Delete</Button>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
 
                     </div>)
                 }

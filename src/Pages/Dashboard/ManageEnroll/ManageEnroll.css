@@ -4,7 +4,24 @@
 
 }
 
-.manage:hover {
+.title {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: white;
+}
+
+.allenr {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-image: linear-gradient(rgba(231, 239, 231, 0.54), cyan);
+
+}
+
+.allenr {
+    margin: 0 3px 0 3px;
+}
+
+.allenr:hover {
     transform: translate3d(1px, 10%, 1em)
 }
 

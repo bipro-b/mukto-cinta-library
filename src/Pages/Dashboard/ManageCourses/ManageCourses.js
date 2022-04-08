@@ -34,15 +34,31 @@ const ManageCourses = () => {
         <>
 
             <div>
-                <h3 style={{ color: 'white' }}>Manage all cars</h3>
+                <h3 style={{ color: 'white' }}>Manage all courses</h3>
                 {
-                    cars.map(car => <div className='edit row' key={car._id}>
+                    cars.map(car => <div className='edit my-2 ' key={car._id}>
+
+                        <div>
+                            {car.course}
+                        </div>
+                        <div>
+                            {car.category}
+                        </div>
+
+                        <div>
+                            <Button onClick={() => handleDelete(car._id)} variant="text">Delete</Button>
+                        </div>
+                        <div>
+                            Update
+                        </div>
 
 
-                        <div className='col' > <h3 style={{ marginLeft: '30px', textAlign: 'left' }}>{car.course}</h3></div>
+
+
+                        {/*< div className='col' > <h3 style={{ marginLeft: '30px', textAlign: 'left' }}>{car.course}</h3></div>
                         <div className='col ' style={{ alignItems: 'center' }} >
                             <Button onClick={() => handleDelete(car._id)} variant="contained">Delete</Button>
-                        </div>
+                        </div> */}
                     </div>)
                 }
             </div>

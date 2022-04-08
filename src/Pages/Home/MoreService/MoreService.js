@@ -9,15 +9,15 @@ const MoreService = (props) => {
     return (
         <Container className="service  ">
 
-            <Col className=" ms-5" >
+            <Col className=" " >
                 <Card className="snap  card h-100">
-                    <Card.Img style={{ height: '150px' }} variant="top" src={thumb} />
+                    <Card.Img style={{ height: '190px' }} variant="top" src={thumb} />
                     <Card.Body>
                         <Card.Title >Course:{course}
                         </Card.Title>
                         <p >Category: {category}</p>
                         {/* <p>Price:{price} ৳</p> */}
-                        <Link to={`/book/${_id}`}> <button style={{ alignItems: 'center', marginLeft: "40px" }} className="btn btn-primary ms-40px">Take</button ></Link>
+                        <Link to={`/book/${_id}`}> <button className="btn btn-success ">Take</button></Link>
                     </Card.Body>
 
                 </Card>

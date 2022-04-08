@@ -17,7 +17,7 @@ const MoreServices = () => {
             <Header />
             <h3 style={{ color: 'white' }}>Pick a course</h3>
             <Container>
-                <Row sm={1} md={2} lg={3} className="g-3">
+                <Row sm={1} md={2} lg={3} className="g-3 mb-5">
 
                     {
                         services.map(service => <MoreService key={service.id} service={service}></MoreService>)

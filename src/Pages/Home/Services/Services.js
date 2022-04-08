@@ -18,11 +18,11 @@ const Services = () => {
     return (
         <div className='services'>
 
-            <Container className="my-2 col-md-10 ">
+            <Container className="my-2  ">
                 <div className="mx-auto d-flex justify-content-center my-2">
                     <h3 style={{ color: 'AppWorkspace' }}><p className='animate'>Come to learn and Go to serve.</p></h3>
                 </div>
-                <Row xs={1} sm={2} md={2} lg={3} className="gy-2 mx-auto">
+                <Row sm={1} md={2} lg={3} className="gy-2 mb-5 mx-auto serv" >
 
                     {
                         services.map((service, index) => {

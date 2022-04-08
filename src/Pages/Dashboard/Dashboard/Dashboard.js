@@ -87,6 +87,7 @@ function Dashboard(props) {
             <AppBar
                 position="fixed"
                 sx={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.312)',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
@@ -118,6 +119,7 @@ function Dashboard(props) {
                 <Drawer
                     container={container}
                     variant="temporary"
+
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
@@ -129,7 +131,7 @@ function Dashboard(props) {
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
-                    {drawer}
+                    {drawer}s
                 </Drawer>
                 <Drawer
                     variant="permanent"

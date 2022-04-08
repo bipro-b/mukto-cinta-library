@@ -6,12 +6,12 @@ import './Header.css'
 const Header = () => {
     const activeStyle = {
         fontWeight: "bold",
-        color: "blue"
+        color: 'rgba(0, 0, 0, 0.312)'
     }
     const { user, logout } = useAuth();
     return (
         <div className="header" >
-            <Navbar bg="blue" variant={"dark"} expand="lg">
+            <Navbar bg='dark' style={{ color: 'rgba(0, 0, 0, 0.312)' }} variant={"dark"} expand="lg">
                 <Container>
                     <Navbar.Brand href="home">Library</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />

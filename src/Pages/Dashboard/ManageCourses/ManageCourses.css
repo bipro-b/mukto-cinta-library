@@ -1,15 +1,15 @@
 .edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: rgb(13, 11, 11);
+    background-image: linear-gradient(rgba(231, 239, 231, 0.54), cyan);
 
-    background-image: linear-gradient(rgb(0, 51, 128), cyan);
 
-    display: flex;
     /* flex-direction: row; */
 
     /* justify-content: center; */
     /* flex-flow: row wrap; */
-    align-items: center;
-    align-content: space-around;
-    align-content: flex-end;
+
 
 }
 
