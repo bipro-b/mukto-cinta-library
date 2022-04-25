@@ -5,6 +5,7 @@ import b1 from '../../../images/b1.jpg';
 import b2 from '../../../images/b2.jpg';
 import b3 from '../../../images/b3.jpg';
 
+
 import './Banner.css';
 const Banner = () => {
     return (

@@ -17,14 +17,14 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
-                            className=" mx-auto  my-lg-0"
+                            className=" mx-auto  my-lg-0 me-0 "
                             style={{ maxHeight: '375px' }}
                             navbarScroll
                         >
 
                             <NavLink to="/" activeStyle={activeStyle}>Home</NavLink>
                             <NavLink to="/moreservices" activeStyle={activeStyle}>More</NavLink>
-                            <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
+                            {/* <NavLink to="/about" activeStyle={activeStyle}>About</NavLink> */}
                             {/* <NavLink to="/contact" activeStyle={activeStyle}>Contact</NavLink> */}
 
 

@@ -1,12 +1,12 @@
 # Project name: Mukto-Cinta Library
 
-My project's live link: [Library](https://authentication-5ca23.firebaseapp.com/).
+My project's live link: [Library](https://cake-and-bake-42ffe.firebaseapp.com/).
 
 ## Project implementation Short description
 
 ### Header & Footer
 
-First I make header and footer components .In header components I have kept NavLink .Those components are shown in every component.
+First I make navbar and footer components .In header components I have kept NavLink .Those components are shown in every component.
 
 ### Router ,Material UI & rest components 
 
